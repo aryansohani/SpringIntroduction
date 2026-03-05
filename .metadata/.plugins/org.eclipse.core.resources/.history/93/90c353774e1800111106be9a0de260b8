@@ -1,0 +1,10 @@
+package com.aryan.demo;
+
+public class Cpu {
+	
+	public void run()
+	{
+		System.out.println("Cpu is running");
+	}
+
+}

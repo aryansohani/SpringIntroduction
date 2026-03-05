@@ -1,0 +1,10 @@
+package com.aryan.demo;
+
+public class Electricity {
+	
+	public void flow()
+	{
+		System.out.println("electricity is flowing");
+	}
+
+}

@@ -1,0 +1,107 @@
+#what is Spring??
+-> spring is a farmework of java for wed developement 
+-> It is light weight and works on POJO (plain old java object)
+
+when spring was first launched it was just a single module that was used for dependency injection but later demand increased
+and spring developed itself and now it has multiple modules which are used in
+microservies
+cloud applications
+web app
+event driver
+batch
+
+#Community
+spring is a very famous in indystry but why?
+it is beacuse it has 
+good feature 
+wide community
+good documentation
+go to spring docs on google and you can read and reffer different topics and modules of spring
+
+
+#springsetup
+
+1.IntelliJ IDEA-> for community version there is no extension
+
+2.Eclipse-> go to help->eclipse marketplace->search->Springtool5->install->confirm->next->next
+restart->new project -> spring 
+
+3.VS Code-> open extension -> spring boot extension,springboot dashboard,spring initializer install all
+
+
+#Core components of spring
+There are two core components of spring 
+->IOC inverse of control
+-> DI dependency injection
+
+what is IOC?
+-> when working on java we have to create, manage and destroy multiple objects
+-> To reduce these IOC was created which stands for Inversion of control i.e you are giving control of creating
+managing and destroying objects to spring itself mean you dont have to always think of object management spring will
+take care of it and you can focus on business logic 
+->So basically there is a IOC container where spring stores object
+
+what is DI?
+DI Stands for the dependecy injection which is second core component of spring
+it is a design pattern and its work is to get the object from IOC Container and put it in your application
+that is injecting objects in application
+
+                        
+#Spring vs SpringBoot
+Spring- when spring was released we have to manually configure all the dependecies through pom.xml or annotations
+these use to create more manual work so it was lengthy process just to write simple code like hello world
+
+SpringBoot is built on top of spring i.e it provides everything in a predefined manner means all dependencies and 
+annotation so we dont have to manually import everything making it smooth and easy to code.
+its like just select what you want and springboot and it will give you structure with all configurations directly
+
+springboot is a opinionated framework build on top of spring 
+
+#first springboot code
+
+eclipse-> go to new project->spring->spring starter project->name,type=maven,package=jar,language=java->next you can see list of dependecies which can be added for now no need so -> next->finish
+
+Intellij-> intellij has no spring extension and support so we have to first go to 
+Spring.starter.io which is official link of spring and after going select all configuration (name ,lang,java version etc)
+then click generate it will provide you a zip file and download it then go to that file -> extract all-> you will get a folder
+click on the folder and open with intellij
+
+#First dependency injection code
+
+lets talk about 
+SpringApplication.run(Springapplication.class,args)-> in these the run() returns a object of ConfigurableApplicationContext that is extended of ApplicationContext.
+see JAB we have to talk to IOC container to get objects/beans we need object of ApplicationContext
+so code becomes 
+ApplicationContext context= SpringApplication.run(...)
+now you got object of ApplicationContext now using these object we can getbeans
+see human-> object but when control in hand of spring we call object as beans
+so laptop lap=context.getBean(laptop.class) (.getbean() to get object from ioc container and we have to always mention (.class)that we are using)
+But see for each class you want for spring to create object and store in IOC you have to annotate it with @Component
+If you dont spring wont track that class and create object
+
+
+#Autowired
+
+consider you are calling a object of Laptop and using its methods eg run() but in laptop run method there is CPU.start() method of CPU class and Motherboard.run() so basically if we have to run laptop we have run [CPU.start() and Motherboard.run()] but for that we have to create Object of CPU and Motherboard but how can we?? so do we have to add all in IOC container?? 
+yes we have to annotate all classes with @Component but we dont have to class CPU cpu =getBean(CPU.class) cause we have concept of Autowired which is a annotation you just have to annotate it
+
+eg 
+
+public class Laptop
+{
+    @Autowired
+    CPU cpu
+
+    @Autowired
+    Motherboard mb
+
+    public void run()
+    {
+        cpu.start()
+        mb.run()
+    }
+}
+
+so autowrired means it links the main class->laptop and laptop->cpu and motherboard in future if you want to link cpu->electricity you can
+do that also so we dont always have to use .getBean()
+if one class is dependent on other for execution we use annotation @Autowired
