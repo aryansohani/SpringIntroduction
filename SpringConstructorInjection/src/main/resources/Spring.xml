@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="alien1" class="com.aryan.Alien">
+
+<!--        sequence-->
+<!--        <constructor-arg value="23"> </constructor-arg>-->
+<!--        <constructor-arg ref="lap1"> </constructor-arg>-->
+<!--        <constructor-arg value="2000"> </constructor-arg>-->
+
+<!--        type and sequence matters best if all variable of different type if same type spring gets confused at that time it follows seq-->
+<!--        <constructor-arg type="int" value="3000"> </constructor-arg>-->
+<!--        <constructor-arg type="int" value="23"> </constructor-arg>-->
+<!--        <constructor-arg type="com.aryan.Laptop" ref="lap1"> </constructor-arg>-->
+
+<!--       best way index is the best way index means the index of variable in which seq they are defined in constructor seq of writing doest matter index no. matters-->
+<!--        <constructor-arg index="0" value="25"> </constructor-arg>-->
+<!--        <constructor-arg index="1" ref="lap1"> </constructor-arg>-->
+<!--        <constructor-arg index="2" value="5000"> </constructor-arg>-->
+
+<!--        last method using name and @Contructorproperty({}) annotation where we define name for variables seq doesn't  matter as we provide name-->
+        <constructor-arg name="age" value="23"> </constructor-arg>
+        <constructor-arg name="lap" ref="lap1"> </constructor-arg>
+        <constructor-arg name="price" value="7000"> </constructor-arg>
+    </bean>
+
+    <bean id="lap1" class="com.aryan.Laptop"> </bean>
+
+
+
+</beans>
