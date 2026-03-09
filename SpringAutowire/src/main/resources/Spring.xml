@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean id="alien" class="com.aryan.Alien" autowire="byName"> </bean>-->
+<!--    <bean id="comp1" class="com.aryan.Desktop"> </bean>-->
+<!--    <bean id="comp" class="com.aryan.Laptop"> </bean>-->
+<!--    (The spring will wire the id= variable name of computer in Alien for eg in lap the id is comp = computer comp in alien)-->
+<!--    (if there are two id with same name as variable the spring get confused which to inject as ref and gives error)-->
+
+    <bean id="alien" class="com.aryan.Alien" autowire="byType"> </bean>
+<!--    <bean id="lap" class="com.aryan.Laptop"> </bean>-->
+    <bean id="desk" class="com.aryan.Desktop"> </bean>
+
+<!--    (The spring will wire by type here i.e see computer is interface so spring will wire all class implementing computer cause they are of same type)-->
+<!--    (if there are two or more class that implement same interface at that time spring will be confused which to give as ref and give error)-->
+
+
+
+
+</beans>
