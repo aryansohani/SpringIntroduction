@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="alien" class="com.aryan.Alien" autowire="byType">
+<!--    <property name="comp" ref="comp2"> </property>-->
+    </bean>
+
+    <bean id="comp1" class="com.aryan.Desktop" > </bean>
+    <bean id="comp2" class="com.aryan.Laptop" primary="true"> </bean>
+
+</beans>
+
+<!--basically kya hota hai jab we use autowire=byType toh agar apne pe 2 bean rahenge of same type then when we define a bean-->
+<!--as primary="true" so spring usko consider karta hai default ref to create obj-->
+<!--par agar we mentioned &lt;!&ndash;    <property name="comp" ref="comp2"> </property>&ndash;&gt; toh woh explicitly act hota hai matlab fir spring woh-->
+<!--dekhta hai and not primary-->
