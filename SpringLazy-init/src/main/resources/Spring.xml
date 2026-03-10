@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="alien" class="com.aryan.Alien" >
+        <property name="comp" ref="desk"> </property>
+
+    </bean>
+
+    <bean id="lap" class="com.aryan.Laptop" lazy-init="true"> </bean>
+    <bean id="desk" class="com.aryan.Desktop"> </bean>
+
+
+
+</beans>
+
+<!--here you can see jab tak we dont explicitly call lap i.e using ref="lap" or .getBean() tab tak Laptop class ka spring object he nahi create-->
+<!--karega iss kya hota hai storage bachti hai consider 100 objects hai but now only need 2 so creating all object in IOC container can make -->
+<!--application heavy isleye lazy-init="true" is used isse kya hota hai ki object tab tak nhi bante jab tak unko need ya unhe call na kiya gaya hoon-->
